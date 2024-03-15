@@ -21,13 +21,13 @@ rendertGame()
 }
 function rendertGame() {
 
-    cardEl.textContent = "Cards:" + cards[0] +" " + cards[1];
+    cardEl.textContent = "Cards:" + randomNumber1 +" " + randomNumber2;
 
-    sumEl.textContent = "Sum:" + sum;
+    sumEl.textContent = "Sum:" + ranSum;
 
-    if (sum <= 20) {
+    if (ranSum <= 20) {
         message = "Do you want to draw a new card? "
-    } else if (sum === 21) {
+    } else if (ranSum === 21) {
         message = "You've got Blackjack! "
         hasBlackJack = true
     } else {
@@ -42,7 +42,22 @@ function rendertGame() {
 function newCard() {
    console.log("Drawing a new card from the deck!")
 
-   let card = 7;
-   sum += card;
+   
+   ranSum += randomNumber3;
   rendertGame()
 }
+
+
+
+
+// Генерация случайного числа в диапазоне от min (включительно) до max (включительно)
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Получение двух разных случайных чисел
+let randomNumber1 = getRandomNumber(1, 10); 
+let randomNumber2 = getRandomNumber(1, 10); 
+let randomNumber3 = getRandomNumber(1, 10);
+console.log(randomNumber3)
+ranSum = randomNumber1 + randomNumber2;
